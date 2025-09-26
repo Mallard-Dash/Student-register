@@ -1,11 +1,13 @@
 #A register over students in a class
+#Copyright Mallard-Dash 2025
 from colorama import Fore, Style
+import time
 
-database = []
+database = [] #This is where all students are stored
 
 
 
-def add_student():
+def add_student(): #Function for adding students in database
     try:
         name = str(input("Enter name: "))
     except ValueError:
@@ -29,35 +31,41 @@ def add_student():
     database.append(add)
 
 def show():
-    for student in database:
-        print(database)
+    for student in database: #Function that shows the user all students in the database
+        print(f"---Name: {student['name']}--Hobby: {student['hobby']}---")
 
 def search():
-    search_student = str(input("Enter name of student: "))
-    found = False
+    try:
+        search_student = str(input("Enter name of student: ")) #Search for a specific student by name
+    except ValueError:
+        print(f"Enter a valid student name:")
 
     for student in database:
         if student["name"] == search_student:
-            print(f"---Name: {student['name']}--Age: {student['age']}---")
-            found = True
+            print(f"---Name: {student['name']}--Hobby: {student['hobby']}---")
+            return
 
         else:
             print(Fore.RED+("No student with that name."))
             Fore.RESET
 
 def avg_age():
-    total = 0
-    for val in database:
-        total += val
-        avg = total /len(val)
-        print(f"Average student-age: {avg}")
+    total_age = 0 #Calculate the average age of the students
+    if len(database) == 0:
+        print(f"There is no students in the database")
+              
+    for student in database:
+        total_age += student['age']
+        avg = total_age /len(database)
+        print(f"Average student-age: {avg} years.")
+        
 
 
 def menu():
 
     menu_is_running = True
     while menu_is_running:
-        print (Fore.GREEN + Style.BRIGHT+"***Main menu***\n",
+        print (Fore.GREEN +"***Main menu***\n",
             f"1. Add student\n",
             f"2. List all students\n",
             f"3. Search student\n",
@@ -76,10 +84,13 @@ def menu():
                 search()
                 Fore.RESET
             elif choice == "4":
-                print("4")
+                avg_age()
                 Fore.RESET
             elif choice == "5":
-                print("Exiting program...bye!")
+                for i in range(3, 0, -1):
+                    print(i)
+                    time.sleep(1)
+                print(Fore.CYAN + "Exiting program...")
                 break
         except ValueError:
             print("Try a valid number from 1-5")
