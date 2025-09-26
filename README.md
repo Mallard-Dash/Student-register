@@ -1,4 +1,6 @@
-Student Register
+---------------------------------------------------------------------------
+---Student-register---
+----------------------------------------------------------------------------
 
 A tiny console app for managing a class roster. Add students, list them, search by name, and compute the average age — all from a simple menu.
 
@@ -16,7 +18,9 @@ Colored output via colorama
 
 In-memory storage (no files/DB)
 
-Requirements
+---------------------------------------------------------------------------
+---Requirements---
+----------------------------------------------------------------------------
 
 Python 3.9+
 
@@ -27,7 +31,9 @@ pip install colorama
 Run
 python app.py
 
-Usage
+---------------------------------------------------------------------------
+---Usage---
+----------------------------------------------------------------------------
 
 On start you’ll see a menu:
 
@@ -40,8 +46,9 @@ On start you’ll see a menu:
 
 
 Enter a number (1–5) to perform an action. Prompts will guide you (e.g., name, age, hobby). Output uses color for clarity.
-
-Notes
+---------------------------------------------------------------------------
+---Notes---
+----------------------------------------------------------------------------
 
 Data is stored only in memory; restarting the app resets the register.
 
